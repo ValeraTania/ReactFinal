@@ -1,0 +1,166 @@
+
+  /* Box sizing rules */
+  *,
+  *::before,
+  *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+  }
+  /* Remove default margin and padding */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  li,
+  figure,
+  figcaption,
+  blockquote,
+  dl,
+  dd {
+      margin: 0;
+      padding: 0;
+  }
+  /* Remove list styles (bullets/numbers) */
+  ul,
+  ol {
+      list-style: none;
+  }
+  /* Remove default button styles */
+  button {
+      background: none;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+      outline: none;
+  }
+  /* Remove default link styles */
+  a {
+      text-decoration: none;
+      color: inherit;
+  }
+  /* Remove default form styles */
+  input,
+  textarea,
+  select,
+  button {
+      font: inherit;
+      color: inherit;
+  }
+  /* Remove default table styles */
+  table {
+      border-collapse: collapse;
+      border-spacing: 0;
+  }
+  /* Remove default image styles */
+  img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+  }
+  /* Remove default fieldset styles */
+  fieldset {
+      border: none;
+      margin: 0;
+      padding: 0;
+  }
+  /* Remove default legend styles */
+  legend {
+      padding: 0;
+  }
+  /* Remove default quote styles */
+  blockquote,
+  q {
+      quotes: none;
+  }
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+      content: '';
+      content: none;
+  }
+  /* Remove default pre and code styles */
+  pre,
+  code {
+      font-family: monospace;
+  }
+  /* Remove default horizontal rule styles */
+  hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 1em 0;
+  }
+  /* Remove default details styles */
+  details > summary {
+      list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+      display: none;
+  }
+  /* Remove default dialog styles */
+  dialog {
+      padding: 0;
+      border: none;
+  }
+  /* Remove default iframe styles */
+  iframe {
+      border: none;
+  }
+  /* Remove default progress styles */
+  progress {
+      vertical-align: baseline;
+  }
+  /* Remove default meter styles */
+  meter {
+      vertical-align: baseline;
+  }
+  /* Remove default audio and video styles */
+  audio,
+  video {
+      display: inline-block;
+  }
+  /* Remove default canvas styles */
+  canvas {
+      display: block;
+  }
+  /* Remove default template styles */
+  template {
+      display: none;
+  }
+  /* Remove default hidden attribute styles */
+  [hidden] {
+      display: none !important;
+  }
+  body {
+      background-color: #222;
+      color: white;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
