@@ -1,21 +1,32 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
-import { BrowserRouter, Route, Routes } from 'react-router';
-import Home from './pages/Home.tsx';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter, Route, Routes } from "react-router";
 
-createRoot(document.getElementById('root')!).render(
+//import CSS files
+import "./css/index.css";
+import "./css/Card.css";
+import "./css/NavBar.css";
+import "./css/Details.css";
+
+//import Pages
+import Movies from "./pages/Movies.tsx";
+import Series from "./pages/Series.tsx";
+
+//import Components
+import NavBar from "./components/NavBar.tsx";
+import Details from "./pages/Details.tsx";
+
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-  <BrowserRouter>
-      <App />
-    <Routes>
-      <Route path="/" element={<Home/>}></Route>
-      {/* <Route path="" element={<Movies/>}></Route >
-      <Route path="" element={<TV/>}></Route>
-      <Route path="" element={<Actors/>}></Route> */}
-      
-    </Routes>
+    <BrowserRouter>
+      <NavBar />
+
+      <Routes>
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/tv" element={<Series />} />
+        {/* Dynamic route for movie/serie details */}
+        <Route path="/:mediaType/:id" element={<Details />} />
+      </Routes>
     </BrowserRouter>
-  </StrictMode>,
-)
+  </StrictMode>
+);

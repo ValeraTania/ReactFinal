@@ -1,0 +1,44 @@
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+
+}
+
+body {
+  background: linear-gradient(0.25turn, $bodyBgBlue, $bodyBgRed);
+  color: $white;
+}
+
+//Dark mode
+.themeDark {
+  background: linear-gradient(0.25turn, #1e1e1e, #3d3d3d);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem 1rem;
+  padding: 1rem 0 2rem 0;
+}
+
+.grid-horizontal {
+  display: grid;
+  grid-auto-flow: column;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  scrollbar-width: none;
+  grid-auto-columns: minmax(200px, 1fr);
+}
+
+.category {
+  text-align: left;
+  padding: 2rem 0 0.5rem 0;
+}
+
+.loading {
+  text-align: center;
+}

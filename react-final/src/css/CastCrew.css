@@ -1,0 +1,23 @@
+.container {
+  margin: 0 2rem;
+  padding: 1rem 0;
+}
+
+.actor-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+.actor-details .actor-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #A7A7A7;
+  background-size: cover;
+  background-position: center;
+}
+
+.actor-character {
+  color: #A7A7A7;
+}/*# sourceMappingURL=CastCrew.css.map */

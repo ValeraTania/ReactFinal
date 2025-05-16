@@ -1,0 +1,26 @@
+@import "variables";
+
+.container {
+  margin: 0 2rem;
+  padding: 1rem 0;
+}
+
+.actor-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+
+  .actor-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: $grey;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.actor-character {
+  color: $grey;
+}
