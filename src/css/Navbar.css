@@ -22,26 +22,27 @@ ul {
 
 .brand {
   line-height: 150%;
-  padding: 2rem;
+  padding: 1rem 2rem;
 }
 .brand-logo {
-  background: #0f1c2e;
+  background: #A7A7A7;
   border-radius: 0.5rem;
   height: 2rem;
   width: 2.5rem;
 }
 
 li {
-  border-radius: 0.5rem;
   padding: 0.8rem 1.5rem;
   cursor: pointer;
   border: none;
   font-size: 1rem;
   transition: background-color 1s ease;
   list-style-type: none;
+  border-radius: 0.5rem;
 }
 
 a {
+  border-radius: 0.5rem;
   text-decoration: none;
   color: #fff;
 }
@@ -71,12 +72,5 @@ li:hover {
   width: 1rem;
   height: 1rem;
   transition: color 0.5s ease-in-out;
-}
-
-.ligth {
-  color: #ffd43b;
-}
-
-.dark {
   color: #fff;
 }/*# sourceMappingURL=Navbar.css.map */

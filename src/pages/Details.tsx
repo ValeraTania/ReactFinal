@@ -4,7 +4,7 @@ import { faStar as fullStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CastCrew from "../components/CastCrew";
 import Recommended from "../components/Recommended";
-import { ItemDetails } from "../interface/detailInterface";
+import { ItemDetails } from "../interface/DetailInterface";
 import { options } from "../utils/authKey";
 import { MediaType } from "../interface/MediaInterface";
 
@@ -46,18 +46,19 @@ export default function Details() {
         <h4 className="loading">Loading...</h4>
       ) : (
         <div className="details-container">
-          <div
+          {/* <div
             className="backdrop-img"
             style={{ backgroundImage: `url(${imageUrl})` }}
-          ></div>
+          ></div> */}
 
-          <div className="details-container-header">
+          <div className="details-container-header backdrop-img" style={{ backgroundImage: `url(${imageUrl})`  }}>
+           
             <img
               src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
               alt={item.title}
             />
             <div className="details-content">
-              <h1 className="title">{item.title}</h1>
+              <h1 className="details-title">{item.title || item.name}</h1>
               <div className="details-item">
                 <div className="rate">
                   <FontAwesomeIcon icon={fullStar} className="icon" />
@@ -77,6 +78,7 @@ export default function Details() {
             </div>
           </div>
           <div className="overview">
+            <h2>Overview</h2>
             <p>{item.overview}</p>
           </div>
           <div className="cast-crew">

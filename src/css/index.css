@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -24,7 +24,7 @@ body {
   display: grid;
   grid-auto-flow: column;
   overflow-x: auto;
-  gap: 1.5rem;
+  gap: 1rem;
   padding: 1rem 0;
   scrollbar-width: none;
   grid-auto-columns: minmax(200px, 1fr);
