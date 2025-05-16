@@ -31,7 +31,9 @@ body {
   gap: 1rem;
   padding: 1rem 0;
   scrollbar-width: none;
-  grid-auto-columns: minmax(200px, 1fr);
+  grid-auto-columns: minmax(200px, min-content);
+
+
 }
 
 .category {
@@ -41,4 +43,8 @@ body {
 
 .loading {
   text-align: center;
+}
+
+.search-result{
+  max-width: 250px;
 }

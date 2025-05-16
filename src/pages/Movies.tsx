@@ -119,16 +119,18 @@ const uniqueItems =  allMovies.filter((movie: Movie) => {
       search.length > 0 ? (
         <div className="grid">
           {searchResult.map((result: Movie) => (
-            <Card
+            <Link to={`/movie/${result.id}`} key={result.id} className="search-result">
+            <Card 
               key={result.id}
               element={result}
               date={result.release_date.split("-")[0]}
             />
+            </Link>
           ))}
         </div>
       ) : (
         <>
-          <h3 className="category">Popular series</h3>
+          <h3 className="category">Popular movies</h3>
           <div className="grid">
             {popularMovies.map((popularMovie: Movie) => (
               <Link to={`/movie/${popularMovie.id}`} key={popularMovie.id}>
@@ -161,7 +163,7 @@ const uniqueItems =  allMovies.filter((movie: Movie) => {
             ))}
           </div>
 
-          <h3 className="category">Airing today</h3>
+          <h3 className="category">Upcoming</h3>
           <div className="grid-horizontal">
             {airingToday.map((airing: Movie) => (
               <Link to={`/movie/${airing.id}`} key={airing.id}>
