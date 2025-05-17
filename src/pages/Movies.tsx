@@ -3,7 +3,13 @@ import Card from "../components/Card";
 import { Link } from "react-router";
 import { Movie } from "../interface/MediaInterface";
 import { options } from "../utils/authKey";
+import  {scrollById}  from "../utils/handleScroll";
 import "../css/Search.css";
+import {
+  faCircleChevronRight,
+  faCircleChevronLeft,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Movies() {
   const [loading, setLoading] = useState(true);
@@ -79,7 +85,6 @@ export default function Movies() {
     });
   }, []);
 
-
   //All movies
   const allMovies = [
     ...popularMovies,
@@ -88,8 +93,8 @@ export default function Movies() {
     ...airingToday,
   ];
 
-const uniqueMovies = new Set();
-const uniqueItems =  allMovies.filter((movie: Movie) => {
+  const uniqueMovies = new Set();
+  const uniqueItems = allMovies.filter((movie: Movie) => {
     if (uniqueMovies.has(movie.id)) {
       return false;
     }
@@ -101,10 +106,8 @@ const uniqueItems =  allMovies.filter((movie: Movie) => {
     movie.title.toLowerCase().startsWith(search.toLowerCase())
   );
 
-
   return (
     <div className="container">
-     
       <input
         type="text"
         placeholder="Search by name..."
@@ -119,12 +122,16 @@ const uniqueItems =  allMovies.filter((movie: Movie) => {
       search.length > 0 ? (
         <div className="grid">
           {searchResult.map((result: Movie) => (
-            <Link to={`/movie/${result.id}`} key={result.id} className="search-result">
-            <Card 
+            <Link
+              to={`/movie/${result.id}`}
               key={result.id}
-              element={result}
-              date={result.release_date.split("-")[0]}
-            />
+              className="search-result"
+            >
+              <Card
+                key={result.id}
+                element={result}
+                date={result.release_date.split("-")[0]}
+              />
             </Link>
           ))}
         </div>
@@ -143,7 +150,9 @@ const uniqueItems =  allMovies.filter((movie: Movie) => {
           </div>
 
           <h3 className="category">Now Playing</h3>
-          <div className="grid-horizontal">
+          {/* scroll */}
+
+          <div className="grid-horizontal" id="playingMovies">
             {nowPlaying.map((playing: Movie) => (
               <Link to={`/movie/${playing.id}`} key={playing.id}>
                 <Card
@@ -153,18 +162,49 @@ const uniqueItems =  allMovies.filter((movie: Movie) => {
               </Link>
             ))}
           </div>
+           <div className="scroll-container">
+            <button
+              className="btn-scroll"
+              onClick={() => scrollById("playingMovies", "left")}
+            >
+              <FontAwesomeIcon icon={faCircleChevronLeft} className="scroll" />
+            </button>
+            <button
+              className="btn-scroll"
+              onClick={() => scrollById("playingMovies", "right")}
+            >
+              <FontAwesomeIcon icon={faCircleChevronRight} className="scroll" />
+            </button>
+          </div>
+
 
           <h3 className="category">Top rated</h3>
-          <div className="grid-horizontal">
+         
+          <div className="grid-horizontal" id="topRatedMovies">
             {topRated.map((rated: Movie) => (
               <Link to={`/movie/${rated.id}`} key={rated.id}>
                 <Card element={rated} date={rated.release_date.split("-")[0]} />
               </Link>
             ))}
           </div>
+           <div className="scroll-container">
+            <button
+              className="btn-scroll"
+              onClick={() => scrollById("topRatedMovies", "left")}
+            >
+              <FontAwesomeIcon icon={faCircleChevronLeft} className="scroll" />
+            </button>
+            <button
+              className="btn-scroll"
+              onClick={() => scrollById("topRatedMovies", "right")}
+            >
+              <FontAwesomeIcon icon={faCircleChevronRight} className="scroll" />
+            </button>
+          </div>
 
           <h3 className="category">Upcoming</h3>
-          <div className="grid-horizontal">
+          
+          <div className="grid-horizontal" id="upcomingMovies">
             {airingToday.map((airing: Movie) => (
               <Link to={`/movie/${airing.id}`} key={airing.id}>
                 <Card
@@ -173,6 +213,20 @@ const uniqueItems =  allMovies.filter((movie: Movie) => {
                 />
               </Link>
             ))}
+          </div>
+           <div className="scroll-container">
+            <button
+              className="btn-scroll"
+              onClick={() => scrollById("upcomingMovies", "left")}
+            >
+              <FontAwesomeIcon icon={faCircleChevronLeft} className="scroll" />
+            </button>
+            <button
+              className="btn-scroll"
+              onClick={() => scrollById("upcomingMovies", "right")}
+            >
+              <FontAwesomeIcon icon={faCircleChevronRight} className="scroll" />
+            </button>
           </div>
         </>
       )}

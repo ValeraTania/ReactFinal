@@ -13,7 +13,7 @@ export default function Series() {
   const [search, setSearch] = useState("");
 
   const category = ["popular", "on_the_air", "top_rated", "airing_today"];
-  const allSeries = [...popularSeries,...airingToday,...topRated,...onAir];
+  const allSeries = [...popularSeries, ...airingToday, ...topRated, ...onAir];
 
   const getSeries = async (category: string) => {
     try {
@@ -48,19 +48,18 @@ export default function Series() {
     });
   }, []);
 
-
   const uniqueMovies = new Set();
-  const uniqueItems =  allSeries.filter((serie: Serie) => {
-      if (uniqueMovies.has(serie.id)) {
-        return false;
-      }
-      uniqueMovies.add(serie.id);
-      return true;
-    });
-  
-    const searchResult = uniqueItems.filter((serie: Serie) =>
-      serie.name.toLowerCase().startsWith(search.toLowerCase())
-    );
+  const uniqueItems = allSeries.filter((serie: Serie) => {
+    if (uniqueMovies.has(serie.id)) {
+      return false;
+    }
+    uniqueMovies.add(serie.id);
+    return true;
+  });
+
+  const searchResult = uniqueItems.filter((serie: Serie) =>
+    serie.name.toLowerCase().startsWith(search.toLowerCase())
+  );
 
   return (
     <div className="container">
@@ -75,26 +74,29 @@ export default function Series() {
       {loading ? (
         <h4 className="loading">Loading...</h4>
       ) : //  search
-            search.length > 0 ? (
-              <div className="grid">
-                {searchResult.map((result: Serie) => (
-                  <Card
-                    key={result.id}
-                    element={result}
-                    date={result.first_air_date.split("-")[0]}
-                  />
-                ))}
-              </div>
-            ) :
-      
-       (
+      search.length > 0 ? (
+        <div className="grid">
+          {searchResult.map((result: Serie) => (
+            <Link
+              to={`/tv/${result.id}`}
+              key={result.id}
+              className="search-result"
+            >
+              <Card
+                key={result.id}
+                element={result}
+                date={result.first_air_date.split("-")[0]}
+              />
+            </Link>
+          ))}
+        </div>
+      ) : (
         <>
           <h3 className="category">Popular series</h3>
           <div className="grid">
             {popularSeries.map((popularSerie: Serie) => (
               <Link to={`/tv/${popularSerie.id}`} key={popularSerie.id}>
                 <Card
-                  
                   element={popularSerie}
                   date={popularSerie.first_air_date.split("-")[0]}
                 />
@@ -105,8 +107,7 @@ export default function Series() {
           <h3 className="category">On the air</h3>
           <div className="grid-horizontal">
             {onAir.map((playing: Serie) => (
-              <Link to={`/tv/${playing.id}`} key={playing.id}
->
+              <Link to={`/tv/${playing.id}`} key={playing.id}>
                 <Card
                   element={playing}
                   date={playing.first_air_date.split("-")[0]}
@@ -120,7 +121,6 @@ export default function Series() {
             {topRated.map((rated: Serie) => (
               <Link to={`/tv/${rated.id}`} key={rated.id}>
                 <Card
-                  
                   element={rated}
                   date={rated.first_air_date.split("-")[0]}
                 />
@@ -131,9 +131,8 @@ export default function Series() {
           <h3 className="category">Airing today</h3>
           <div className="grid-horizontal">
             {airingToday.map((airing: Serie) => (
-              <Link to={`/tv/${airing.id}`}  key={airing.id}>
+              <Link to={`/tv/${airing.id}`} key={airing.id}>
                 <Card
-                 
                   element={airing}
                   date={airing.first_air_date.split("-")[0]}
                 />

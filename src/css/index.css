@@ -41,4 +41,23 @@ body {
 
 .search-result {
   max-width: 250px;
+}
+
+.scroll-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.btn-scroll {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.scroll {
+  width: 2rem;
+  height: 2rem;
+  color: #fff;
 }/*# sourceMappingURL=index.css.map */

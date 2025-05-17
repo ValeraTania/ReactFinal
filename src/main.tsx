@@ -22,6 +22,8 @@ createRoot(document.getElementById("root")!).render(
       <NavBar />
 
       <Routes>
+        <Route path="/" element={<Movies />} />
+
         <Route path="/movies" element={<Movies />} />
         <Route path="/tv" element={<Series />} />
         {/* Dynamic route for movie/serie details */}

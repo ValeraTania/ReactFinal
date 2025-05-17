@@ -46,13 +46,10 @@ export default function Details() {
         <h4 className="loading">Loading...</h4>
       ) : (
         <div className="details-container">
-          {/* <div
-            className="backdrop-img"
+          <div
+            className="details-container-header backdrop-img"
             style={{ backgroundImage: `url(${imageUrl})` }}
-          ></div> */}
-
-          <div className="details-container-header backdrop-img" style={{ backgroundImage: `url(${imageUrl})`  }}>
-           
+          >
             <img
               src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
               alt={item.title}
