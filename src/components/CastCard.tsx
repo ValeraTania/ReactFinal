@@ -1,4 +1,4 @@
-import noImage from "../../public/no-image.png";
+import noImage from "../assets/no-image.png";
 import { Cast } from "../interface/CastInterface";
 
 interface CastProps {
